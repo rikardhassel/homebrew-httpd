@@ -35,6 +35,8 @@ class Httpd24 < Formula
 		system "make"
 		system "make install"
 
+        %w{log run}.each { |dir| (var/"apache2"/dir).mkpath }
+
 		plist_path.write startup_plist
 		plist_path.chmod 0644
 	end
